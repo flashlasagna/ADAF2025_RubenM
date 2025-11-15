@@ -301,9 +301,9 @@ Test:       2023-01-01 to 2024-12-31 (731 days = 8%)
 
 ## Contact
 
-**Ruben Mimouni**
-ruben.mimouni@unil.ch
-Advanced Data Analytics  
+**Ruben Mimouni**\
+ruben.mimouni@unil.ch\
+Advanced Data Analytics\
 HEC Lausanne
 
 ---
