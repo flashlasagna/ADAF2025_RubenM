@@ -265,25 +265,25 @@ Test:       2023-01-01 to 2024-12-31 (731 days = 8%)
 
 ## Progress Tracker
 
-- [x] Week 1-2: Data Foundation
+- [x] Data Foundation
   - [x] Data loading & cleaning
   - [x] Missing value treatment
   - [x] Initial exploration
-- [ ] Week 3-4: Feature Engineering
+- [ ] Feature Engineering
   - [ ] Temporal features
   - [ ] Lag features
   - [ ] Rolling statistics
   - [ ] Derived variables
   - [ ] Cross-station features
-- [ ] Week 5-6: Classical Models
+- [ ] Classical Models
   - [ ] Ridge Regression
   - [ ] Random Forest
   - [ ] XGBoost
   - [ ] LightGBM
-- [ ] Week 7-8: Deep Learning (optional)
-  - [ ] LSTM implementation
+- [ ] Deep Learning (optional)
+  - [ ] TFT implementation
   - [ ] Hyperparameter tuning
-- [ ] Week 9-10: Model Comparison
+- [ ] Model Comparison
   - [ ] Temporal cross-validation
   - [ ] Statistical testing
   - [ ] Error analysis
@@ -300,7 +300,8 @@ Test:       2023-01-01 to 2024-12-31 (731 days = 8%)
 
 ## Contact
 
-**Ruben Mimouni**  
+**Ruben Mimouni**
+ruben.mimouni@unil.ch
 Advanced Data Analytics  
 HEC Lausanne
 
