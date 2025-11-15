@@ -142,7 +142,7 @@ ADAF2025_RubenM/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/weather-forecast-ml.git
+git clone https://github.com/flashlasagna/ADAF2025_RubenM.git
 cd weather-forecast-ml
 ```
 
@@ -270,24 +270,24 @@ Test:       2023-01-01 to 2024-12-31 (731 days = 8%)
   - [x] Data loading & cleaning
   - [x] Missing value treatment
   - [x] Initial exploration
-- [ ] Feature Engineering
-  - [ ] Temporal features
-  - [ ] Lag features
-  - [ ] Rolling statistics
-  - [ ] Derived variables
-  - [ ] Cross-station features
-- [ ] Classical Models
-  - [ ] Ridge Regression
-  - [ ] Random Forest
-  - [ ] XGBoost
-  - [ ] LightGBM
+- [x] Feature Engineering
+  - [x] Temporal features
+  - [x] Lag features
+  - [x] Rolling statistics
+  - [x] Derived variables
+  - [x] Cross-station features
+- [x] Classical Models
+  - [x] Ridge Regression
+  - [x] Random Forest
+  - [x] XGBoost
+  - [x] LightGBM
 - [ ] Deep Learning (optional)
   - [ ] TFT implementation
   - [ ] Hyperparameter tuning
-- [ ] Model Comparison
-  - [ ] Temporal cross-validation
-  - [ ] Statistical testing
-  - [ ] Error analysis
+- [x] Model Comparison
+  - [x] Temporal cross-validation
+  - [x] Statistical testing
+  - [x] Error analysis
 - [ ] Report Writing
   - [ ] SIAM format document
   - [ ] Figures & tables
