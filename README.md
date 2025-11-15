@@ -1,4 +1,4 @@
-# Come Rain, Come Shine: Weather Prediction with Machine Learning
+# Come Rain or Come Shine: Weather Prediction with Machine Learning
 
 **Comparative Study of ML Models for Daily Weather Forecasting**  
 *Advanced Data Analytics - HEC Lausanne*
