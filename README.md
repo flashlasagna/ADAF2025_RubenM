@@ -288,11 +288,11 @@ Test:       2023-01-01 to 2024-12-31 (731 days = 8%)
   - [ ] Temporal cross-validation
   - [ ] Statistical testing
   - [ ] Error analysis
-- [ ] Week 11: Report Writing
+- [ ] Report Writing
   - [ ] SIAM format document
   - [ ] Figures & tables
   - [ ] References
-- [ ] Week 12: Video & Submission
+- [ ] Video & Submission
   - [ ] Record presentation
   - [ ] Final code review
   - [ ] Submit
