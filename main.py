@@ -26,9 +26,9 @@ logger = logging.getLogger(__name__)
 
 def run_preprocessing():
     """Run data preprocessing pipeline."""
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("STEP 1: DATA PREPROCESSING")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     try:
         from src.data.preprocess import run_preprocessing_pipeline
@@ -42,9 +42,9 @@ def run_preprocessing():
 
 def run_feature_engineering():
     """Run feature engineering pipeline."""
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("STEP 2: FEATURE ENGINEERING")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     try:
         from src.features.build_features import build_complete_feature_set
@@ -58,45 +58,53 @@ def run_feature_engineering():
 
 def run_model_training():
     """Run model training pipeline."""
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("STEP 3: MODEL TRAINING")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     try:
-        # TODO: Implement in Week 5-6
-        logger.warning("⚠️ Model training not yet implemented (Week 5-6)")
-        # from src.models.train_models import train_all_models
-        # models = train_all_models()
-        # logger.info("✅ Model training complete!")
+        from src.models.train_models import train_all_models
+        models = train_all_models()
+        logger.info("✅ Model training complete!")
         return True
     except Exception as e:
         logger.error(f"❌ Model training failed: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
 def run_evaluation():
     """Run model evaluation pipeline."""
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("STEP 4: MODEL EVALUATION")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     try:
-        # TODO: Implement in Week 9-10
-        logger.warning("⚠️ Model evaluation not yet implemented (Week 9-10)")
-        # from src.evaluation.evaluate_models import evaluate_all_models
-        # results = evaluate_all_models()
-        # logger.info("✅ Model evaluation complete!")
+        from src.evaluation.evaluate_models import evaluate_all_models
+        from src.evaluation.visualization import create_all_plots
+
+        # Evaluate models
+        results = evaluate_all_models()
+
+        # Create plots
+        logger.info("\nGenerating visualizations...")
+        create_all_plots(results['regression'], results['classification'])
+
+        logger.info("✅ Model evaluation complete!")
         return True
     except Exception as e:
         logger.error(f"❌ Model evaluation failed: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
 def run_all():
     """Run complete pipeline."""
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("RUNNING COMPLETE PIPELINE")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     # Print configuration
     print_config()
@@ -121,9 +129,9 @@ def run_all():
         logger.warning("Pipeline completed up to modeling, but evaluation not yet implemented")
         return True  # Not a failure, just incomplete
 
-    logger.info("\n" + "=" * 80)
+    logger.info("\n" + "="*80)
     logger.info("✅ COMPLETE PIPELINE FINISHED SUCCESSFULLY!")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     return True
 
@@ -170,10 +178,10 @@ Examples:
         ]
     )
 
-    logger.info("=" * 80)
+    logger.info("="*80)
     logger.info("WEATHER FORECASTING ML PIPELINE")
     logger.info("Come Rain, Come Shine - Ruben Mimouni")
-    logger.info("=" * 80)
+    logger.info("="*80)
 
     # Run requested step
     success = False
