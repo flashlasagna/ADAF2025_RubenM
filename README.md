@@ -24,7 +24,7 @@ This project compares the effectiveness of different machine learning models for
 ## Project Structure
 
 ```
-weather_forecast_project/
+ADAF2025_RubenM/
 │
 ├── README.md                      # This file
 ├── requirements.txt               # Python dependencies
@@ -82,7 +82,8 @@ weather_forecast_project/
 │   ├── ridge_model.pkl
 │   ├── rf_model.pkl
 │   ├── xgb_model.pkl
-│   └── lgbm_model.pkl
+|   ├── lgbm_model.pkl
+│   └── tft_model.h5
 │
 ├── results/                       # Results and figures
 │   ├── figures/                  # All plots
