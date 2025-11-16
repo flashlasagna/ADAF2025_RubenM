@@ -134,4 +134,4 @@ if __name__ == "__main__":
     logger.info(f"\nTop 10 features:")
     print(importance.head(10))
 
-    logger.info("\n✓ XGBoost test complete!")
+    logger.info("\n--OK-- XGBoost test complete!")

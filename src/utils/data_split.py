@@ -116,7 +116,7 @@ pd.Series, pd.Series, pd.Series]:
     assert y_val.isna().sum() == 0, "NaN found in val target!"
     assert y_test.isna().sum() == 0, "NaN found in test target!"
 
-    logger.info("✓ No NaN in targets")
+    logger.info("--OK-- No NaN in targets")
 
     return X_train, X_val, X_test, y_train, y_val, y_test
 
@@ -244,9 +244,9 @@ def save_split_datasets(df: pd.DataFrame = None):
     val_df.to_csv(VAL_FILE, index=False)
     test_df.to_csv(TEST_FILE, index=False)
 
-    logger.info(f"✓ Saved train set: {TRAIN_FILE} ({len(train_df):,} rows)")
-    logger.info(f"✓ Saved val set: {VAL_FILE} ({len(val_df):,} rows)")
-    logger.info(f"✓ Saved test set: {TEST_FILE} ({len(test_df):,} rows)")
+    logger.info(f"--OK-- Saved train set: {TRAIN_FILE} ({len(train_df):,} rows)")
+    logger.info(f"--OK-- Saved val set: {VAL_FILE} ({len(val_df):,} rows)")
+    logger.info(f"--OK-- Saved test set: {TEST_FILE} ({len(test_df):,} rows)")
 
 
 if __name__ == "__main__":
@@ -271,4 +271,4 @@ if __name__ == "__main__":
     # Save splits
     save_split_datasets(df)
 
-    logger.info("\n✓ Data splitting utilities tested successfully!")
+    logger.info("\n--OK-- Data splitting utilities tested successfully!")

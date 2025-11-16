@@ -413,7 +413,7 @@ def build_tft_model(feature_info: dict,
             metrics=['accuracy', keras.metrics.AUC(name='auc')]
         )
 
-    logger.info("\n✓ TFT model built and compiled")
+    logger.info("\n--OK-- TFT model built and compiled")
 
     return model
 
@@ -450,4 +450,4 @@ if __name__ == "__main__":
 
     model.summary()
 
-    logger.info("\n✓ TFT model architecture test complete!")
+    logger.info("\n--OK-- TFT model architecture test complete!")

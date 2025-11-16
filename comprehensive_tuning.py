@@ -344,7 +344,7 @@ def save_comprehensive_results(tuning_results: Dict, task: str):
     summary_df = pd.DataFrame(summary_rows)
     summary_path = TABLES_DIR / f'hyperparameter_tuning_{task}_comprehensive.csv'
     summary_df.to_csv(summary_path, index=False)
-    logger.info(f"✓ Saved summary: {summary_path}")
+    logger.info(f"--OK-- Saved summary: {summary_path}")
 
     # Detailed results for each model
     for model_name, result in tuning_results.items():
@@ -358,7 +358,7 @@ def save_comprehensive_results(tuning_results: Dict, task: str):
 
         detail_path = TABLES_DIR / f'tuning_{task}_{model_name}_comprehensive.csv'
         all_results.to_csv(detail_path, index=False)
-        logger.info(f"✓ Saved {model_name} details: {detail_path}")
+        logger.info(f"--OK-- Saved {model_name} details: {detail_path}")
 
     # Save best parameters as JSON
     import json
@@ -370,7 +370,7 @@ def save_comprehensive_results(tuning_results: Dict, task: str):
     params_path = TABLES_DIR / f'best_params_{task}_comprehensive.json'
     with open(params_path, 'w') as f:
         json.dump(best_params_dict, f, indent=2)
-    logger.info(f"✓ Saved best params: {params_path}")
+    logger.info(f"--OK-- Saved best params: {params_path}")
 
     # Print summary
     logger.info(f"\n{'=' * 80}")
@@ -450,7 +450,7 @@ def train_with_best_params_comprehensive(task: str = 'regression'):
         # Save
         save_path = MODELS_DIR / f'{model_name}_{task}_comprehensive.pkl'
         model.save(save_path)
-        logger.info(f"✓ Saved: {save_path}")
+        logger.info(f"--OK-- Saved: {save_path}")
 
 
 def run_comprehensive_pipeline(use_early_stopping: bool = True):

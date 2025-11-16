@@ -318,4 +318,4 @@ if __name__ == "__main__":
     logger.info("=" * 80)
     clf_data = prepare_tft_data(task='classification', sequence_length=30)
 
-    logger.info("\n✓ Sequence data preparation complete!")
+    logger.info("\n--OK-- Sequence data preparation complete!")

@@ -118,7 +118,7 @@ def create_improvement_comparison_plot(task='regression'):
     # Save
     save_path = FIGURES_DIR / f'{task}_tuning_improvement.png'
     plt.savefig(save_path, bbox_inches='tight', dpi=300)
-    logger.info(f"✓ Saved: {save_path}")
+    logger.info(f"--OK-- Saved: {save_path}")
 
     plt.close()
 
@@ -180,7 +180,7 @@ def create_tuned_scores_plot(task='regression'):
     # Save
     save_path = FIGURES_DIR / f'{task}_best_scores_tuned.png'
     plt.savefig(save_path, bbox_inches='tight', dpi=300)
-    logger.info(f"✓ Saved: {save_path}")
+    logger.info(f"--OK-- Saved: {save_path}")
 
     plt.close()
 
@@ -276,7 +276,7 @@ def create_summary_table_plot(task='regression'):
     # Save
     save_path = FIGURES_DIR / f'{task}_tuning_summary_table.png'
     plt.savefig(save_path, bbox_inches='tight', dpi=300)
-    logger.info(f"✓ Saved: {save_path}")
+    logger.info(f"--OK-- Saved: {save_path}")
 
     plt.close()
 

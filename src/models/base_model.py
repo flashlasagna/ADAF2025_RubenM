@@ -97,7 +97,7 @@ class BaseWeatherModel(ABC):
         self.training_time = time.time() - start_time
         self.is_fitted = True
 
-        logger.info(f"✓ Training complete in {self.training_time:.2f}s")
+        logger.info(f"--OK-- Training complete in {self.training_time:.2f}s")
 
         return self
 
@@ -198,7 +198,7 @@ class BaseWeatherModel(ABC):
         }
 
         joblib.dump(save_dict, filepath)
-        logger.info(f"✓ Saved {self.model_name} to {filepath}")
+        logger.info(f"--OK-- Saved {self.model_name} to {filepath}")
 
     @classmethod
     def load(cls, filepath: Path) -> 'BaseWeatherModel':
@@ -227,7 +227,7 @@ class BaseWeatherModel(ABC):
         instance.training_time = save_dict['training_time']
         instance.is_fitted = save_dict['is_fitted']
 
-        logger.info(f"✓ Loaded {instance.model_name} from {filepath}")
+        logger.info(f"--OK-- Loaded {instance.model_name} from {filepath}")
 
         return instance
 

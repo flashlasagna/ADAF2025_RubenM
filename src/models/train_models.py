@@ -164,6 +164,6 @@ if __name__ == "__main__":
     # Train all models
     all_models = train_all_models()
 
-    print("\n✓ Model training complete!")
+    print("\n--OK-- Model training complete!")
     print(f"  Regression models: {list(all_models['regression'].keys())}")
     print(f"  Classification models: {list(all_models['classification'].keys())}")

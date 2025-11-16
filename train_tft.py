@@ -204,7 +204,7 @@ def train_tft(task='regression',
 
     training_time = time.time() - start_time
 
-    logger.info(f"\n✓ Training complete in {training_time / 60:.2f} minutes")
+    logger.info(f"\n--OK-- Training complete in {training_time / 60:.2f} minutes")
     logger.info(f"  Best epoch: {len(history.history['loss']) - patience}")
     logger.info(f"  Best val_loss: {min(history.history['val_loss']):.4f}")
 
@@ -224,13 +224,13 @@ def train_tft(task='regression',
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     model_path = MODELS_DIR / f'tft_{task}.h5'
     model.save(model_path)
-    logger.info(f"\n✓ Model saved: {model_path}")
+    logger.info(f"\n--OK-- Model saved: {model_path}")
 
     # Save training history
     history_df = pd.DataFrame(history.history)
     history_path = TABLES_DIR / f'tft_{task}_training_history.csv'
     history_df.to_csv(history_path, index=False)
-    logger.info(f"✓ Training history saved: {history_path}")
+    logger.info(f"--OK-- Training history saved: {history_path}")
 
     # Save hyperparameters
     hyperparams = {
@@ -251,7 +251,7 @@ def train_tft(task='regression',
     hyperparams_path = TABLES_DIR / f'tft_{task}_hyperparameters.json'
     with open(hyperparams_path, 'w') as f:
         json.dump(hyperparams, f, indent=2)
-    logger.info(f"✓ Hyperparameters saved: {hyperparams_path}")
+    logger.info(f"--OK-- Hyperparameters saved: {hyperparams_path}")
 
     return model, history, training_time
 

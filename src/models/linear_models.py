@@ -144,4 +144,4 @@ if __name__ == "__main__":
     logger.info(f"\nTop 10 features:")
     print(coefs.head(10))
 
-    logger.info("\n✓ Ridge model test complete!")
+    logger.info("\n--OK-- Ridge model test complete!")
