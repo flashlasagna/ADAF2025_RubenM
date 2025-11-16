@@ -33,10 +33,10 @@ def run_preprocessing():
     try:
         from src.data.preprocess import run_preprocessing_pipeline
         df = run_preprocessing_pipeline()
-        logger.info("✅ Preprocessing complete!")
+        logger.info("--OK-- Preprocessing complete!")
         return True
     except Exception as e:
-        logger.error(f"❌ Preprocessing failed: {e}")
+        logger.error(f"--FAIL-- Preprocessing failed: {e}")
         return False
 
 
@@ -49,10 +49,10 @@ def run_feature_engineering():
     try:
         from src.features.build_features import build_complete_feature_set
         df = build_complete_feature_set(save_output=True)
-        logger.info("✅ Feature engineering complete!")
+        logger.info("--OK-- Feature engineering complete!")
         return True
     except Exception as e:
-        logger.error(f"❌ Feature engineering failed: {e}")
+        logger.error(f"--FAIL-- Feature engineering failed: {e}")
         return False
 
 
@@ -65,10 +65,10 @@ def run_model_training():
     try:
         from src.models.train_models import train_all_models
         models = train_all_models()
-        logger.info("✅ Model training complete!")
+        logger.info("--OK-- Model training complete!")
         return True
     except Exception as e:
-        logger.error(f"❌ Model training failed: {e}")
+        logger.error(f"--FAIL-- Model training failed: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -91,10 +91,10 @@ def run_evaluation():
         logger.info("\nGenerating visualizations...")
         create_all_plots(results['regression'], results['classification'])
 
-        logger.info("✅ Model evaluation complete!")
+        logger.info("--OK-- Model evaluation complete!")
         return True
     except Exception as e:
-        logger.error(f"❌ Model evaluation failed: {e}")
+        logger.error(f"--FAIL-- Model evaluation failed: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -130,7 +130,7 @@ def run_all():
         return True  # Not a failure, just incomplete
 
     logger.info("\n" + "="*80)
-    logger.info("✅ COMPLETE PIPELINE FINISHED SUCCESSFULLY!")
+    logger.info("--OK-- COMPLETE PIPELINE FINISHED SUCCESSFULLY!")
     logger.info("="*80)
 
     return True
@@ -199,10 +199,10 @@ Examples:
 
     # Exit with appropriate code
     if success:
-        logger.info("\n✅ Pipeline completed successfully!")
+        logger.info("\n--OK-- Pipeline completed successfully!")
         sys.exit(0)
     else:
-        logger.error("\n❌ Pipeline failed!")
+        logger.error("\n--FAIL-- Pipeline failed!")
         sys.exit(1)
 
 
