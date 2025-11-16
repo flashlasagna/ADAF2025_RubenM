@@ -71,12 +71,6 @@ ADAF2025_RubenM/
 │       ├── config.py             # Configuration settings
 │       └── helpers.py            # Helper functions
 │
-├── notebooks/                     # Jupyter notebooks
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_baseline_models.ipynb
-│   ├── 04_model_comparison.ipynb
-│   └── 05_final_analysis.ipynb
 │
 ├── models/                        # Saved trained models
 │   ├── ridge_model.pkl
