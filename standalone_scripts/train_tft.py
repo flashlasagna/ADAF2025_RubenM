@@ -23,7 +23,7 @@ import sys
 sys.path.insert(0, str(PROJECT_ROOT))
 from TFT_implementation.sequence_data import prepare_tft_data
 from TFT_implementation.tft_model import build_tft_model
-
+from TFT_implementation.tft_architecture_search import normalize_sequences
 from src.utils.config import MODELS_DIR, TABLES_DIR, RANDOM_SEED
 
 logger = logging.getLogger(__name__)
@@ -127,6 +127,7 @@ def train_tft(task='regression',
     logger.info("LOADING DATA")
     logger.info("-" * 80)
     data = prepare_tft_data(task=task, sequence_length=sequence_length)
+    data = normalize_sequences(data, task=task)
 
     # Create TF datasets
     logger.info("\nCreating TensorFlow datasets...")
