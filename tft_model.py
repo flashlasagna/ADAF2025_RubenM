@@ -289,11 +289,8 @@ class TemporalFusionTransformer(keras.Model):
 
         # Output layers
         if task == 'regression':
-            # Quantile outputs for uncertainty
-            self.output_layers = [
-                layers.Dense(1, name=f'quantile_{q}')
-                for q in output_quantiles
-            ]
+            # Single output for regression (simplified from quantile regression)
+            self.output_layer = layers.Dense(1, name='regression_output')
         else:
             # Binary classification
             self.output_layer = layers.Dense(1, activation='sigmoid', name='classification_output')
@@ -335,14 +332,8 @@ class TemporalFusionTransformer(keras.Model):
         # Take last time step for prediction
         final_hidden = attention_output[:, -1, :]  # (batch, hidden_dim)
 
-        # Generate outputs
-        if self.task == 'regression':
-            # Multiple quantile predictions
-            outputs = [layer(final_hidden) for layer in self.output_layers]
-            outputs = tf.concat(outputs, axis=-1)  # (batch, num_quantiles)
-        else:
-            # Classification
-            outputs = self.output_layer(final_hidden)  # (batch, 1)
+        # Generate output
+        outputs = self.output_layer(final_hidden)  # (batch, 1)
 
         return outputs
 
@@ -360,11 +351,11 @@ class TemporalFusionTransformer(keras.Model):
 
 
 def build_tft_model(feature_info: dict,
-                    hidden_dim: int = 128,
-                    num_heads: int = 4,
-                    num_lstm_layers: int = 1,
-                    dropout_rate: float = 0.1,
-                    task: str = 'regression') -> TemporalFusionTransformer:
+                   hidden_dim: int = 128,
+                   num_heads: int = 4,
+                   num_lstm_layers: int = 1,
+                   dropout_rate: float = 0.1,
+                   task: str = 'regression') -> TemporalFusionTransformer:
     """
     Build TFT model from feature information.
 

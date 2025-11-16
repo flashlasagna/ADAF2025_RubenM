@@ -1,0 +1,14 @@
+{
+  "task": "regression",
+  "sequence_length": 30,
+  "hidden_dim": 128,
+  "num_heads": 4,
+  "num_lstm_layers": 1,
+  "dropout_rate": 0.1,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "epochs_trained": 78,
+  "training_time_minutes": 5.150252008438111,
+  "best_val_loss": 7.397683620452881,
+  "test_loss": 7.568972587585449
+}
