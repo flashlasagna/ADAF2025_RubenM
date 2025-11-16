@@ -21,8 +21,8 @@ sys.path.append(str(PROJECT_ROOT))
 import sys
 
 sys.path.insert(0, str(PROJECT_ROOT))
-from sequence_data import prepare_tft_data
-from tft_model import build_tft_model
+from TFT_implementation.sequence_data import prepare_tft_data
+from TFT_implementation.tft_model import build_tft_model
 
 from src.utils.config import MODELS_DIR, TABLES_DIR, RANDOM_SEED
 
