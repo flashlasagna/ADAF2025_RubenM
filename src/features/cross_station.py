@@ -53,7 +53,7 @@ def add_temperature_difference(df: pd.DataFrame) -> pd.DataFrame:
         df_features['temp_min_diff'] = (df_features['temp_min_gve'] -
                                         df_features['temp_min_puy'])
 
-    logger.info("✓ Added temperature difference features")
+    logger.info("--OK-- Added temperature difference features")
 
     return df_features
 
@@ -89,7 +89,7 @@ def add_pressure_gradient(df: pd.DataFrame) -> pd.DataFrame:
         # Also keep absolute difference
         df_features['pressure_diff'] = pressure_diff
 
-    logger.info("✓ Added pressure gradient features")
+    logger.info("--OK-- Added pressure gradient features")
 
     return df_features
 
@@ -118,7 +118,7 @@ def add_humidity_difference(df: pd.DataFrame) -> pd.DataFrame:
         df_features['humidity_diff'] = (df_features['humidity_gve'] -
                                         df_features['humidity_puy'])
 
-    logger.info("✓ Added humidity difference feature")
+    logger.info("--OK-- Added humidity difference feature")
 
     return df_features
 
@@ -152,7 +152,7 @@ def add_spatial_precipitation_lag(df: pd.DataFrame) -> pd.DataFrame:
         # Pully yesterday → Geneva predictor (less likely but possible)
         df_features['precip_puy_lag1_for_gve'] = df_features['precipitation_puy'].shift(1)
 
-    logger.info("✓ Added spatial precipitation lag features")
+    logger.info("--OK-- Added spatial precipitation lag features")
 
     return df_features
 
@@ -191,9 +191,9 @@ def add_wind_convergence(df: pd.DataFrame) -> pd.DataFrame:
         # V-component difference (north-south)
         df_features['wind_v_diff'] = df_features['wind_v_gve'] - df_features['wind_v_puy']
 
-        logger.info("✓ Added wind component differences")
+        logger.info("--OK-- Added wind component differences")
     else:
-        logger.warning("  ⚠️ Wind components not found, skipping wind convergence")
+        logger.warning("--WARNING-- Wind components not found, skipping wind convergence")
 
     return df_features
 
@@ -222,7 +222,7 @@ def add_radiation_difference(df: pd.DataFrame) -> pd.DataFrame:
         df_features['radiation_diff'] = (df_features['radiation_gve'] -
                                          df_features['radiation_puy'])
 
-    logger.info("✓ Added radiation difference feature")
+    logger.info("--OK-- Added radiation difference feature")
 
     return df_features
 

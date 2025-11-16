@@ -74,7 +74,7 @@ def paired_t_test(errors1: np.ndarray,
     logger.info(f"  p-value: {p_value:.6f}")
 
     if significant:
-        logger.info(f"  ✓ Difference is statistically SIGNIFICANT (p < 0.05)")
+        logger.info(f"  --OK-- Difference is statistically SIGNIFICANT (p < 0.05)")
         logger.info(f"  Winner: {winner}")
     else:
         logger.info(f"  ✗ Difference is NOT statistically significant (p >= 0.05)")
@@ -246,7 +246,7 @@ def friedman_test(errors_dict: Dict[str, np.ndarray]) -> Dict:
     logger.info(f"  p-value: {p_value:.6f}")
 
     if significant:
-        logger.info(f"  ✓ At least one model is significantly different")
+        logger.info(f"  --OK-- At least one model is significantly different")
         logger.info(f"\n  Ranking (best to worst):")
         for rank, (name, error) in enumerate(ranked, 1):
             logger.info(f"    {rank}. {name}: {error:.4f}")
@@ -406,4 +406,4 @@ if __name__ == "__main__":
     mcnemar_result = mcnemar_test(y_true_clf, pred1_clf, pred2_clf,
                                   "Classifier1", "Classifier2")
 
-    logger.info("\n✓ Statistical tests module test complete!")
+    logger.info("\n--OK-- Statistical tests module test complete!")

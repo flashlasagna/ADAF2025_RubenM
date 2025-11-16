@@ -55,7 +55,7 @@ def create_target_variables(df: pd.DataFrame) -> pd.DataFrame:
     # Regression target: next-day mean temperature (Geneva)
     if REGRESSION_TARGET in df.columns:
         df_targets['target_temp_next_day'] = df_targets[REGRESSION_TARGET].shift(-1)
-        logger.info(f"✓ Regression target: next-day {REGRESSION_TARGET}")
+        logger.info(f"--OK-- Regression target: next-day {REGRESSION_TARGET}")
 
     # Classification target: rain binary (Geneva)
     if 'precipitation_gve' in df.columns:
@@ -68,7 +68,7 @@ def create_target_variables(df: pd.DataFrame) -> pd.DataFrame:
         rain_days = df_targets['rain_today'].sum()
         rain_pct = (rain_days / len(df_targets)) * 100
 
-        logger.info(f"✓ Classification target: rain > {RAIN_THRESHOLD}mm")
+        logger.info(f"--OK-- Classification target: rain > {RAIN_THRESHOLD}mm")
         logger.info(f"  Rainy days: {rain_days} ({rain_pct:.1f}%)")
         logger.info(f"  Dry days: {len(df_targets) - rain_days} ({100 - rain_pct:.1f}%)")
 
@@ -196,7 +196,7 @@ def build_complete_feature_set(save_output: bool = True) -> pd.DataFrame:
     if save_output:
         logger.info("\nStep 9: Saving feature dataset...")
         df.to_csv(FEATURES_DATASET_FILE, index=False)
-        logger.info(f"✓ Saved to: {FEATURES_DATASET_FILE}")
+        logger.info(f"--OK-- Saved to: {FEATURES_DATASET_FILE}")
 
     # Final summary
     logger.info("\n" + "=" * 80)
@@ -243,5 +243,5 @@ if __name__ == "__main__":
     # Build complete feature set
     df = build_complete_feature_set(save_output=True)
 
-    print("\n✅ Feature engineering pipeline completed successfully!")
+    print("\n--OK-- Feature engineering pipeline completed successfully!")
     print(f"   Feature dataset: {FEATURES_DATASET_FILE}")

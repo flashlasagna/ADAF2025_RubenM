@@ -52,7 +52,7 @@ def add_lag_features(df: pd.DataFrame,
     features_added = 0
     for var in variables:
         if var not in df.columns:
-            logger.warning(f"  ⚠️ Variable {var} not found, skipping")
+            logger.warning(f"--WARNING-- Variable {var} not found, skipping")
             continue
 
         for lag in lags:
@@ -60,7 +60,7 @@ def add_lag_features(df: pd.DataFrame,
             df_features[new_col] = df_features[var].shift(lag)
             features_added += 1
 
-    logger.info(f"✓ Added {features_added} lag features")
+    logger.info(f"--OK-- Added {features_added} lag features")
 
     return df_features
 

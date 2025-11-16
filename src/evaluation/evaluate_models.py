@@ -115,7 +115,7 @@ def evaluate_regression_models() -> pd.DataFrame:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     results_path = TABLES_DIR / 'regression_results.csv'
     results_df.to_csv(results_path, index=False)
-    logger.info(f"\n✓ Saved regression results to {results_path}")
+    logger.info(f"\n--OK-- Saved regression results to {results_path}")
 
     return results_df
 
@@ -197,7 +197,7 @@ def evaluate_classification_models() -> pd.DataFrame:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     results_path = TABLES_DIR / 'classification_results.csv'
     results_df.to_csv(results_path, index=False)
-    logger.info(f"\n✓ Saved classification results to {results_path}")
+    logger.info(f"\n--OK-- Saved classification results to {results_path}")
 
     return results_df
 
@@ -369,6 +369,6 @@ if __name__ == "__main__":
     # Evaluate all models
     results = evaluate_all_models()
 
-    print("\n✓ Model evaluation complete!")
+    print("\n--OK-- Model evaluation complete!")
     print(f"  Regression results: {len(results['regression'])} rows")
     print(f"  Classification results: {len(results['classification'])} rows")

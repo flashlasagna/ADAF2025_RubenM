@@ -107,7 +107,7 @@ def add_rolling_features(df: pd.DataFrame,
     features_added = 0
     for var in variables:
         if var not in df.columns:
-            logger.warning(f"  ⚠️ Variable {var} not found, skipping")
+            logger.warning(f"--WARNING-- Variable {var} not found, skipping")
             continue
 
         for window in windows:
@@ -120,7 +120,7 @@ def add_rolling_features(df: pd.DataFrame,
                 df_features = add_rolling_std(df_features, var, window)
                 features_added += 1
 
-    logger.info(f"✓ Added {features_added} rolling features")
+    logger.info(f"--OK-- Added {features_added} rolling features")
 
     return df_features
 

@@ -231,9 +231,9 @@ def verify_data_integrity(df: pd.DataFrame, station_name: str) -> None:
     gaps = date_diffs[date_diffs != expected_diff].dropna()
 
     if len(gaps) > 0:
-        logger.warning(f"  ⚠️ Found {len(gaps)} date gaps!")
+        logger.warning(f"--WARNING-- Found {len(gaps)} date gaps!")
     else:
-        logger.info(f"  ✓ Perfect date continuity")
+        logger.info(f"  --OK-- Perfect date continuity")
 
 
 if __name__ == "__main__":

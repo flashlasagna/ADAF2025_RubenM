@@ -52,11 +52,11 @@ def analyze_missing_values(df: pd.DataFrame, station_name: str) -> Dict:
             }
 
             if missing_pct == 0:
-                status = "✅"
+                status = "OK"
             elif missing_pct < 5:
-                status = "⚠️"
+                status = "WARNING"
             else:
-                status = "❌"
+                status = "FAIL"
 
             logger.info(f"  {status} {col:.<35} {missing_pct:>6.2f}%")
 
@@ -157,9 +157,9 @@ def interpolate_sunshine_using_radiation(df: pd.DataFrame,
         # Clip to physical bounds (0-24 hours)
         df_clean[sunshine_hours_col] = df_clean[sunshine_hours_col].clip(lower=0, upper=24)
 
-        logger.info(f"  ✓ Interpolated {missing_count:,} sunshine values")
+        logger.info(f"  --OK-- Interpolated {missing_count:,} sunshine values")
         logger.info(
-            f"  ✓ Range: {df_clean[sunshine_hours_col].min():.1f} to {df_clean[sunshine_hours_col].max():.1f} hours")
+            f"  --OK-- Range: {df_clean[sunshine_hours_col].min():.1f} to {df_clean[sunshine_hours_col].max():.1f} hours")
 
     # Drop original sunshine column
     df_clean = df_clean.drop(columns=[sunshine_col])
@@ -196,13 +196,13 @@ def clean_geneva_data(df: pd.DataFrame) -> pd.DataFrame:
     df_clean = interpolate_sunshine_using_radiation(df_clean, '_gve')
 
     # Verify no missing values remain
-    logger.info("\n✅ Verification - Remaining Missing Values:")
+    logger.info("\n --OK-- Verification - Remaining Missing Values:")
     remaining_missing = df_clean.isna().sum()
     for col, missing in remaining_missing.items():
         if col not in ['date', 'station_abbr'] and missing > 0:
-            logger.warning(f"  ⚠️ {col}: {missing} still missing!")
+            logger.warning(f"--WARNING-- {col}: {missing} still missing!")
         elif col not in ['date', 'station_abbr']:
-            logger.info(f"  ✅ {col}: 0 missing")
+            logger.info(f"--OK-- {col}: 0 missing")
 
     return df_clean
 
@@ -236,13 +236,13 @@ def clean_pully_data(df: pd.DataFrame) -> pd.DataFrame:
     df_clean = handle_minimal_missing(df_clean, minimal_missing_cols, method='ffill')
 
     # Verify no missing values remain
-    logger.info("\n✅ Verification - Remaining Missing Values:")
+    logger.info("\n--OK-- Verification - Remaining Missing Values:")
     remaining_missing = df_clean.isna().sum()
     for col, missing in remaining_missing.items():
         if col not in ['date', 'station_abbr'] and missing > 0:
-            logger.warning(f"  ⚠️ {col}: {missing} still missing!")
+            logger.warning(f"--WARNING-- {col}: {missing} still missing!")
         elif col not in ['date', 'station_abbr']:
-            logger.info(f"  ✅ {col}: 0 missing")
+            logger.info(f"  --OK-- {col}: 0 missing")
 
     return df_clean
 
@@ -323,13 +323,13 @@ def validate_physical_constraints(df: pd.DataFrame, station_suffix: str) -> None
             above_max = (df[col] > max_val).sum()
 
             if below_min > 0 or above_max > 0:
-                logger.warning(f"  ⚠️ {col}: {below_min} below {min_val}, {above_max} above {max_val}")
+                logger.warning(f"--WARNING-- {col}: {below_min} below {min_val}, {above_max} above {max_val}")
                 violations += 1
 
     if violations == 0:
-        logger.info("  ✓ All values within physical constraints")
+        logger.info("  --OK-- All values within physical constraints")
     else:
-        logger.warning(f"  ⚠️ {violations} constraint violations found")
+        logger.warning(f"--WARNING-- {violations} constraint violations found")
 
 
 if __name__ == "__main__":

@@ -52,11 +52,11 @@ def merge_stations(gve: pd.DataFrame, puy: pd.DataFrame) -> pd.DataFrame:
     # Merge on date (inner join)
     df = gve_merge.merge(puy_merge, on='date', how='inner')
     
-    logger.info(f"✓ Merged dataset: {len(df):,} records")
-    logger.info(f"✓ Total variables: {len(df.columns)-1} (excluding date)")
+    logger.info(f"Merged dataset: {len(df):,} records")
+    logger.info(f"Total variables: {len(df.columns)-1} (excluding date)")
     
     # Verify merge integrity
-    logger.info("\n✅ Merge Verification:")
+    logger.info("\n--OK-- Merge Verification:")
     logger.info(f"  - No missing dates: {df['date'].isna().sum() == 0}")
     logger.info(f"  - No duplicate dates: {df['date'].duplicated().sum() == 0}")
     
@@ -67,9 +67,9 @@ def merge_stations(gve: pd.DataFrame, puy: pd.DataFrame) -> pd.DataFrame:
     gaps = date_diffs[date_diffs != expected_diff].dropna()
     
     if len(gaps) > 0:
-        logger.warning(f"  ⚠️ Found {len(gaps)} date gaps!")
+        logger.warning(f"--WARNING-- Found {len(gaps)} date gaps!")
     else:
-        logger.info(f"  ✓ Perfect date continuity")
+        logger.info(f"  --OK-- Perfect date continuity")
     
     # Sort by date
     df = df.sort_values('date').reset_index(drop=True)
@@ -91,7 +91,7 @@ def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame
         Dataframe with temporal features added
     """
-    logger.info("\n📅 Adding basic temporal features...")
+    logger.info("\nAdding basic temporal features...")
     
     df['year'] = df['date'].dt.year
     df['month'] = df['date'].dt.month
@@ -100,7 +100,7 @@ def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
     df['day_of_week'] = df['date'].dt.dayofweek
     df['week_of_year'] = df['date'].dt.isocalendar().week
     
-    logger.info("✓ Added: year, month, day_of_year, quarter, day_of_week, week_of_year")
+    logger.info("--OK-- Added: year, month, day_of_year, quarter, day_of_week, week_of_year")
     
     return df
 
@@ -119,7 +119,7 @@ def create_data_dictionary(df: pd.DataFrame) -> pd.DataFrame:
     pd.DataFrame
         Data dictionary
     """
-    logger.info("\n📚 Creating data dictionary...")
+    logger.info("\nCreating data dictionary...")
     
     data_dict = {
         'Variable': list(df.columns),
@@ -169,8 +169,8 @@ def run_preprocessing_pipeline():
     # Save cleaned individual station data
     gve_clean.to_csv(GENEVA_CLEAN_FILE, index=False)
     puy_clean.to_csv(PULLY_CLEAN_FILE, index=False)
-    logger.info(f"\n✓ Saved: {GENEVA_CLEAN_FILE}")
-    logger.info(f"✓ Saved: {PULLY_CLEAN_FILE}")
+    logger.info(f"\n--OK-- Saved: {GENEVA_CLEAN_FILE}")
+    logger.info(f"--OK-- Saved: {PULLY_CLEAN_FILE}")
     
     # Step 3: Merge stations
     logger.info("\nSTEP 3: Merging stations...")
@@ -183,13 +183,13 @@ def run_preprocessing_pipeline():
     # Step 5: Save master dataset
     logger.info("\nSTEP 5: Saving master dataset...")
     df.to_csv(MASTER_DATASET_FILE, index=False)
-    logger.info(f"✓ Saved: {MASTER_DATASET_FILE}")
+    logger.info(f"--OK-- Saved: {MASTER_DATASET_FILE}")
     
     # Step 6: Create and save data dictionary
     logger.info("\nSTEP 6: Creating data dictionary...")
     data_dict = create_data_dictionary(df)
     data_dict.to_csv(DATA_DICTIONARY_FILE, index=False)
-    logger.info(f"✓ Saved: {DATA_DICTIONARY_FILE}")
+    logger.info(f"--OK-- Saved: {DATA_DICTIONARY_FILE}")
     
     # Summary
     logger.info("\n" + "="*80)
@@ -219,5 +219,5 @@ if __name__ == "__main__":
     # Run pipeline
     df = run_preprocessing_pipeline()
     
-    print("\n✅ Preprocessing pipeline completed successfully!")
+    print("\n--OK-- Preprocessing pipeline completed successfully!")
     print(f"   Master dataset: {MASTER_DATASET_FILE}")

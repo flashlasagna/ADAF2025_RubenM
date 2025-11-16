@@ -45,7 +45,7 @@ def add_pressure_tendency(df: pd.DataFrame) -> pd.DataFrame:
             new_col = f'pressure_tendency{suffix}'
             df_features[new_col] = df_features[pressure_col].diff()
 
-    logger.info("✓ Added pressure tendency features")
+    logger.info("--OK-- Added pressure tendency features")
 
     return df_features
 
@@ -80,7 +80,7 @@ def add_temperature_range(df: pd.DataFrame) -> pd.DataFrame:
             new_col = f'temp_range{suffix}'
             df_features[new_col] = df_features[temp_max_col] - df_features[temp_min_col]
 
-    logger.info("✓ Added temperature range features")
+    logger.info("--OK-- Added temperature range features")
 
     return df_features
 
@@ -123,7 +123,7 @@ def add_wind_components(df: pd.DataFrame) -> pd.DataFrame:
             df_features[f'wind_u{suffix}'] = -df_features[speed_col] * np.sin(dir_rad)
             df_features[f'wind_v{suffix}'] = -df_features[speed_col] * np.cos(dir_rad)
 
-    logger.info("✓ Added wind u/v components")
+    logger.info("--OK-- Added wind u/v components")
 
     return df_features
 
@@ -163,7 +163,7 @@ def add_dew_point(df: pd.DataFrame) -> pd.DataFrame:
             # Simplified Magnus formula
             df_features[new_col] = df_features[temp_col] - ((100 - df_features[humidity_col]) / 5)
 
-    logger.info("✓ Added dew point features")
+    logger.info("--OK-- Added dew point features")
 
     return df_features
 
@@ -208,7 +208,7 @@ def add_vapor_pressure_deficit(df: pd.DataFrame) -> pd.DataFrame:
             new_col = f'vpd{suffix}'
             df_features[new_col] = es - ea
 
-    logger.info("✓ Added VPD features")
+    logger.info("--OK-- Added VPD features")
 
     return df_features
 
@@ -285,4 +285,4 @@ if __name__ == "__main__":
         if n_nan > 0 or n_inf > 0:
             logger.warning(f"  {col}: {n_nan} NaN, {n_inf} Inf")
         else:
-            logger.info(f"  ✓ {col}: valid")
+            logger.info(f"  --OK-- {col}: valid")

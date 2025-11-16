@@ -277,4 +277,4 @@ if __name__ == "__main__":
 
     print_classification_report(y_true_clf, y_pred_clf, "Test Model")
 
-    logger.info("\n✓ Metrics module test complete!")
+    logger.info("\n--OK-- Metrics module test complete!")

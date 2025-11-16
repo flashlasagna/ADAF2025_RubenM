@@ -72,7 +72,7 @@ def plot_model_comparison_regression(results_df: pd.DataFrame,
 
     if save_path:
         plt.savefig(save_path, bbox_inches='tight')
-        logger.info(f"✓ Saved plot: {save_path}")
+        logger.info(f"--OK-- Saved plot: {save_path}")
 
     plt.close()
 
@@ -125,7 +125,7 @@ def plot_model_comparison_classification(results_df: pd.DataFrame,
 
     if save_path:
         plt.savefig(save_path, bbox_inches='tight')
-        logger.info(f"✓ Saved plot: {save_path}")
+        logger.info(f"--OK-- Saved plot: {save_path}")
 
     plt.close()
 
@@ -181,7 +181,7 @@ def plot_all_metrics_comparison(results_df: pd.DataFrame,
 
     if save_path:
         plt.savefig(save_path, bbox_inches='tight')
-        logger.info(f"✓ Saved plot: {save_path}")
+        logger.info(f"--OK-- Saved plot: {save_path}")
 
     plt.close()
 
@@ -225,7 +225,7 @@ def create_all_plots(reg_results: pd.DataFrame,
     plot_all_metrics_comparison(clf_results, 'classification',
                                 FIGURES_DIR / 'classification_all_metrics.png')
 
-    logger.info(f"\n✓ All plots saved to: {FIGURES_DIR}")
+    logger.info(f"\n--OK-- All plots saved to: {FIGURES_DIR}")
 
 
 if __name__ == "__main__":
@@ -244,6 +244,6 @@ if __name__ == "__main__":
         clf_results = pd.read_csv(clf_results_path)
 
         create_all_plots(reg_results, clf_results)
-        print("\n✓ Visualization complete!")
+        print("\n--OK-- Visualization complete!")
     else:
         logger.warning("Results files not found. Run evaluate_models.py first.")

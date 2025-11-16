@@ -49,7 +49,7 @@ def add_cyclical_features(df: pd.DataFrame) -> pd.DataFrame:
     df_features['day_of_week_sin'] = np.sin(2 * np.pi * df_features['day_of_week'] / 7)
     df_features['day_of_week_cos'] = np.cos(2 * np.pi * df_features['day_of_week'] / 7)
 
-    logger.info("✓ Added 6 cyclical features:")
+    logger.info("--OK-- Added 6 cyclical features:")
     logger.info("  - day_of_year (sin, cos)")
     logger.info("  - month (sin, cos)")
     logger.info("  - day_of_week (sin, cos)")
@@ -87,7 +87,7 @@ def add_season_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df_features['is_summer'] = df_features['month'].isin([6, 7, 8]).astype(int)
     df_features['is_fall'] = df_features['month'].isin([9, 10, 11]).astype(int)
 
-    logger.info("✓ Added 4 season indicators")
+    logger.info("--OK-- Added 4 season indicators")
 
     return df_features
 
@@ -114,7 +114,7 @@ def add_weekend_indicator(df: pd.DataFrame) -> pd.DataFrame:
     df_features = df.copy()
     df_features['is_weekend'] = (df_features['day_of_week'] >= 5).astype(int)
 
-    logger.info("✓ Added 1 weekend indicator")
+    logger.info("--OK-- Added 1 weekend indicator")
 
     return df_features
 
