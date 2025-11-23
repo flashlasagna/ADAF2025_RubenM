@@ -449,9 +449,7 @@ python main.py --step evaluate      # 5 min
 
 ### Challenges & Lessons
 ⚠️ TFT underperformed on temperature (smooth time series)  
-⚠️ Deep learning needs more data (7k sequences may be insufficient)  
-⚠️ Normalization critical for neural networks  
-⚠️ Class imbalance required weighted loss functions  
+⚠️ Deep learning needs more data (7k sequences may be insufficient)   
 ✅ Classical methods sometimes superior for tabular data  
 
 
