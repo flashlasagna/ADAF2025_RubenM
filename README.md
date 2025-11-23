@@ -22,6 +22,30 @@ This project provides a comprehensive comparison of machine learning approaches 
 
 ---
 
+## 📊 Detailed Results
+
+### Temperature Prediction (Test Set)
+
+| Model | RMSE (°C) | MAE (°C) | R² | Improvement vs Persistence |
+|-------|-----------|----------|----|-----------------------|
+| XGBoost | **1.65** | 1.26 | 0.949 | +20.7% |
+| LightGBM | 1.66 | 1.26 | 0.948 | +20.5% |
+| Random Forest | 1.78 | 1.35 | 0.941 | +14.8% |
+| **Persistence** | **2.09** | **1.56** | **0.918** | **Baseline** |
+| TFT | 2.54 | 1.89 | 0.877 | -21.8% |
+
+### Rain Prediction (Test Set)
+
+| Model | F1-Score | AUC | Precision | Recall | Status |
+|-------|----------|-----|-----------|--------|----------|
+| **TFT** | **0.62** | 0.65 | 0.64 | 0.59 | ⭐ Best F1 |
+| **LightGBM** | 0.62 | **0.77** | 0.64 | 0.59 | ⭐ Best AUC |
+| Random Forest | 0.61 | 0.76 | 0.63 | 0.58 | Excellent |
+| XGBoost | 0.59 | 0.75 | 0.61 | 0.57 | Good |
+| Ridge | 0.00| N/A | 0.58 | 0.54 | Failed |
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -320,31 +344,7 @@ Result: 2.54°C RMSE
 ```
 Result: 0.65 AUC (BEST OVERALL!)
 
----
 
-## 📊 Detailed Results
-
-### Temperature Prediction (Test Set)
-
-| Model | RMSE (°C) | MAE (°C) | R² | Improvement vs Persistence |
-|-------|-----------|----------|----|-----------------------|
-| XGBoost | **1.65** | 1.26 | 0.949 | +20.7% |
-| LightGBM | 1.66 | 1.26 | 0.948 | +20.5% |
-| Random Forest | 1.78 | 1.35 | 0.941 | +14.8% |
-| **Persistence** | **2.09** | **1.56** | **0.918** | **Baseline** |
-| TFT | 2.54 | 1.89 | 0.877 | -21.8% |
-
-### Rain Prediction (Test Set)
-
-| Model | F1-Score | AUC | Precision | Recall | Status |
-|-------|----------|-----|-----------|--------|----------|
-| **TFT** | **0.62** | 0.65 | 0.64 | 0.59 | ⭐ Best F1 |
-| **LightGBM** | 0.62 | **0.77** | 0.64 | 0.59 | ⭐ Best AUC |
-| Random Forest | 0.61 | 0.76 | 0.63 | 0.58 | Excellent |
-| XGBoost | 0.59 | 0.75 | 0.61 | 0.57 | Good |
-| Ridge | 0.00| N/A | 0.58 | 0.54 | Failed |
-
-**Baseline (majority class):** 60.7% accuracy, 0.0 F1-score
 
 ---
 
