@@ -51,91 +51,85 @@ This project provides a comprehensive comparison of machine learning approaches 
 ```
 ADAF2025_RubenMimouni/
 │
-├── README.md                          # This file
+├── README.md                          # Project documentation
 ├── requirements.txt                   # Python dependencies
-├── .gitignore                        # Git ignore rules
+├── .gitignore                         # Git ignore rules
 │
-├── data/                             # Data directory
-│   ├── raw/                          # Original MeteoSwiss data
+├── data/                              # Data directory
+│   ├── raw/                           # Original MeteoSwiss data
 │   │   ├── ogd-smn_gve_d_historical.csv
-│   │   └── ogd-smn_puy_d_historical.csv
-│   ├── processed/                    # Cleaned data
+│   │   ├── ogd-smn_puy_d_historical.csv
+│   │   └── ogd-smn_meta_parameters.csv # Station metadata
+│   ├── processed/                     # Cleaned data
 │   │   ├── master_dataset.csv
 │   │   └── data_quality_report.csv
-│   └── features/                     # Feature-engineered datasets
-│       └── weather_features_full.csv # 173 engineered features
+│   └── features/                      # Feature-engineered datasets
+│       └── weather_features_full.csv  # 173 engineered features
 │
-├── src/                              # Source code
+├── src/                               # Source code package
 │   ├── __init__.py
-│   ├── data/                         # Data processing
+│   ├── data/                          # Data processing pipeline
 │   │   ├── __init__.py
-│   │   ├── load_data.py             # Data loading
-│   │   ├── clean_data.py            # Missing value handling
-│   │   └── preprocess.py            # Complete pipeline
+│   │   ├── load_data.py               # Data loading
+│   │   ├── clean_data.py              # Missing value handling
+│   │   └── preprocess.py              # Complete preprocessing pipeline
 │   │
-│   ├── features/                     # Feature engineering
+│   ├── features/                      # Feature engineering modules
 │   │   ├── __init__.py
-│   │   ├── temporal_features.py     # Time-based features
-│   │   ├── lag_features.py          # Lagged variables (1-14 days)
-│   │   ├── rolling_features.py      # Moving averages (7, 14, 30 days)
-│   │   ├── derived_features.py      # Weather indices
-│   │   └── cross_station.py         # Cross-station relationships
+│   │   ├── temporal_features.py       # Cyclical time encoding
+│   │   ├── lag_features.py            # Lagged variables
+│   │   ├── rolling_features.py        # Rolling windows (mean/std)
+│   │   ├── derived_features.py        # Physics-based indices (wind, pressure)
+│   │   └── cross_station.py           # Cross-station differences
 │   │
-│   ├── models/                       # Model implementations
+│   ├── models/                        # Model definitions
 │   │   ├── __init__.py
-│   │   ├── base_model.py            # Base model class
-│   │   ├── linear_models.py         # Ridge regression
-│   │   ├── random_forest.py         # Random Forest
-│   │   ├── xgboost_model.py         # XGBoost
-│   │   └── lightgbm_model.py        # LightGBM
+│   │   ├── base_model.py              # Abstract base class
+│   │   ├── persistence_model.py       # Baseline model
+│   │   ├── linear_models.py           # Ridge regression
+│   │   ├── random_forest.py           # Random Forest
+│   │   ├── xgboost_model.py           # XGBoost wrapper
+│   │   ├── lightgbm_model.py          # LightGBM wrapper
+│   │   └── train_models.py            # Training orchestration
 │   │
-│   ├── evaluation/                   # Model evaluation
+│   ├── evaluation/                    # Evaluation suite
 │   │   ├── __init__.py
-│   │   ├── metrics.py               # Evaluation metrics
-│   │   └── statistical_tests.py     # Significance testing
+│   │   ├── evaluate_models.py         # Evaluation pipeline
+│   │   ├── metrics.py                 # Performance metrics (RMSE, F1, etc.)
+│   │   ├── statistical_tests.py       # Significance tests (Diebold-Mariano)
+│   │   └── visualization.py           # Plotting utilities
 │   │
-│   └── utils/                        # Utilities
+│   └── utils/                         # Utilities
 │       ├── __init__.py
-│       ├── config.py                # Configuration
-│       └── data_split.py            # Temporal train/val/test split
+│       ├── config.py                  # Global configuration
+│       └── data_split.py              # Temporal train/val/test splitting
 │
-├── models/                           # Trained models (pre-tuned)
-│   ├── ridge_regression_comprehensive.pkl
-│   ├── random_forest_regression_comprehensive.pkl
-│   ├── xgboost_regression_comprehensive.pkl
-│   ├── lightgbm_regression_comprehensive.pkl
-│   ├── ridge_classification_comprehensive.pkl
-│   ├── random_forest_classification_comprehensive.pkl
-│   ├── xgboost_classification_comprehensive.pkl
-│   ├── lightgbm_classification_comprehensive.pkl
-│   ├── tft_regression.h5
-│   └── tft_classification.h5
+├── standalone_scripts/                # Execution scripts
+│   ├── comprehensive_tuning.py        # Hyperparameter grid search
+│   ├── plot_tuning_results.py         # Visualization of tuning results
+│   └── train_tft.py                   # TFT training entry point
 │
-├── results/                          # Results and outputs
-│   ├── figures/                      # All visualizations
-│   │   ├── regression_tuning_improvement.png
-│   │   ├── classification_tuning_improvement.png
-│   │   └── model_comparison_*.png
-│   └── tables/                       # Result tables
+├── TFT_implementation/                # Deep Learning (TFT) specifics
+│   ├── sequence_data.py               # Time-series windowing/batching
+│   ├── tft_model.py                   # TFT Keras architecture
+│   └── tft_architecture_search.py     # Deep learning hyperparameter tuning
+│
+├── models/                            # Serialized Models (Binaries)
+│   ├── *_regression.pkl               # Base regression models
+│   ├── *_regression_comprehensive.pkl # Tuned regression models
+│   ├── *_classification.pkl           # Base classification models
+│   ├── *_classification_comprehensive.pkl # Tuned classification models
+│   └── tft_*.h5                       # Saved Keras/TFT models
+│
+├── results/                           # Outputs
+│   ├── figures/                       # Generated plots
+│   └── tables/                        # Metrics and Hyperparameters
 │       ├── regression_results.csv
 │       ├── classification_results.csv
-│       ├── best_params_regression_comprehensive.json
-│       ├── best_params_classification_comprehensive.json
-│       ├── tft_architecture_search_regression.csv
-│       └── tft_architecture_search_classification.csv
+│       ├── *_best_config_*.json
+│       └── *_hyperparameters.json
 │
-├── main.py                           # Main execution script
-│
-├── TFT Implementation/               # Deep learning components
-│   ├── sequence_data.py             # Sequence preparation (30-day windows)
-│   ├── tft_model.py                 # TFT architecture (Keras)
-│   ├── train_tft.py                 # TFT training pipeline
-│   └── tft_architecture_search.py   # Architecture optimization
-│
-└── docs/                             # Documentation
-    ├── TFT_GUIDE.md
-    ├── TFT_ARCHITECTURE_SEARCH_GUIDE.md
-    └── COMPREHENSIVE_GUIDE.md
+└── main.py                            # Primary pipeline entry point
 ```
 
 ---
