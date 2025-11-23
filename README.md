@@ -198,7 +198,7 @@ python main.py --step evaluate
 
 If you want to reproduce everything from raw data:
 
-### Step 1: Data Preparation (~5 minutes)
+### Step 1: Data Preparation
 ```bash
 # Place MeteoSwiss CSV files in data/raw/
 # Then run:
@@ -209,7 +209,7 @@ python main.py --step data
 # - data/features/weather_features_full.csv (173 features)
 ```
 
-### Step 2: Train Baseline Models (~15 minutes)
+### Step 2: Train Baseline Models
 ```bash
 python main.py --step train
 
@@ -217,7 +217,7 @@ python main.py --step train
 # Saves to models/
 ```
 
-### Step 3: Hyperparameter Tuning (~7 hours) ⚠️ Time-Intensive
+### Step 3: Hyperparameter Tuning ⚠️ Time-Intensive
 ```bash
 # Comprehensive grid search for all models
 python comprehensive_tuning.py
@@ -231,7 +231,7 @@ python comprehensive_tuning.py
 # Saves optimized models to models/*_comprehensive.pkl
 ```
 
-### Step 4: TFT Architecture Search (~2-3 hours) ⚠️ Time-Intensive
+### Step 4: TFT Architecture Search ⚠️ Time-Intensive
 ```bash
 # Deep learning architecture optimization
 python tft_architecture_search.py
@@ -248,7 +248,7 @@ python tft_architecture_search.py
 # - Early stopping and learning rate scheduling
 ```
 
-### Step 5: Final Evaluation (~5 minutes)
+### Step 5: Final Evaluation
 ```bash
 python main.py --step evaluate
 ```
@@ -291,8 +291,8 @@ Each model trained with:
 **Optimal Parameters Found:**
 
 **Ridge Regression:**
-- Regression: α = 1.0
-- Classification: α = 10.0
+- Regression: "$α = 1.0$"
+- Classification: "$α = 10.0$"
 
 **Random Forest:**
 - Regression: n_estimators=100, max_depth=30, min_samples_split=10
