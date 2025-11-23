@@ -429,11 +429,11 @@ All metrics, plots, and statistical tests will be regenerated from the pre-train
 python main.py --step all
 
 # Or step by step:
-python main.py --step data          # 5 min
-python main.py --step train         # 15 min
-python comprehensive_tuning.py      # 7 hours ⚠️
-python tft_architecture_search.py   # 2-3 hours ⚠️
-python main.py --step evaluate      # 5 min
+python main.py --step data          
+python main.py --step train         
+python comprehensive_tuning.py      
+python tft_architecture_search.py   ️
+python main.py --step evaluate      
 ```
 
 ---
