@@ -350,23 +350,23 @@ Result: 0.65 AUC (BEST OVERALL!)
 
 ### Temperature Prediction (Test Set)
 
-| Model | RMSE (°C) | MAE (°C) | R² | Improvement vs Baseline |
+| Model | RMSE (°C) | MAE (°C) | R² | Improvement vs Persistence |
 |-------|-----------|----------|----|-----------------------|
-| XGBoost | **1.50** | 1.13 | 0.958 | 13.3% |
-| LightGBM | **1.51** | 1.16 | 0.955 | 13.7% |
-| Random Forest | 1.67 | 1.27 | 0.945 | 6.3% |
-| Ridge | 1.66 | 1.31 | 0.943 | 5.7% |
-| TFT | 2.54 | 1.89 | 0.877 | -40.4% |
+| XGBoost | **1.65** | 1.26 | 0.949 | +20.7% |
+| LightGBM | 1.66 | 1.26 | 0.948 | +20.5% |
+| Random Forest | 1.78 | 1.35 | 0.941 | +14.8% |
+| **Persistence** | **2.09** | **1.56** | **0.918** | **Baseline** |
+| TFT | 2.54 | 1.89 | 0.877 | -21.8% |
 
 ### Rain Prediction (Test Set)
 
-| Model | F1-Score | AUC | Precision | Recall | Accuracy |
+| Model | F1-Score | AUC | Precision | Recall | Status |
 |-------|----------|-----|-----------|--------|----------|
-| **TFT** | **0.62** | **0.65** | 0.64 | 0.59 | 0.73 |
-| XGBoost | 0.59 | 0.63 | 0.61 | 0.57 | 0.68 |
-| LightGBM | 0.62 | 0.62 | 0.64 | 0.59 | 0.71 |
-| Random Forest | 0.61 | 0.62 | 0.63 | 0.58 | 0.70 |
-| Ridge | 0.56 | 0.56 | 0.58 | 0.54 | 0.65 |
+| **TFT** | **0.62** | 0.65 | 0.64 | 0.59 | ⭐ Best F1 |
+| **LightGBM** | 0.62 | **0.77** | 0.64 | 0.59 | ⭐ Best AUC |
+| Random Forest | 0.61 | 0.76 | 0.63 | 0.58 | Excellent |
+| XGBoost | 0.59 | 0.75 | 0.61 | 0.57 | Good |
+| Ridge | 0.00| N/A | 0.58 | 0.54 | Failed |
 
 **Baseline (majority class):** 60.7% accuracy, 0.0 F1-score
 
@@ -533,5 +533,3 @@ This project is for academic purposes only.
 - [x] Step-by-step instructions
 - [x] Expected outputs documented
 - [x] Runtime estimates provided
-
-**All results are fully reproducible from the provided models and code.**
