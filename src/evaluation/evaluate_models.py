@@ -69,7 +69,7 @@ def evaluate_regression_models() -> pd.DataFrame:
     y_train, y_val, y_test = data['y_train'], data['y_val'], data['y_test']
 
     # Model names
-    model_names = ['ridge', 'random_forest', 'xgboost', 'lightgbm']
+    model_names = ['ridge', 'random_forest', 'xgboost', 'lightgbm', 'persistence']
 
     # Results storage
     results = []

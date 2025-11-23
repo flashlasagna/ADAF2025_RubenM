@@ -20,6 +20,7 @@ from src.models.random_forest import RandomForestModel
 from src.models.xgboost_model import XGBoostModel
 from src.models.lightgbm_model import LightGBMModel
 from src.utils.config import MODELS_DIR
+from src.models.persistence_model import PersistenceModel
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +46,8 @@ def train_all_regression_models() -> Dict:
         'ridge': RidgeModel(task='regression', alpha=1.0),
         'random_forest': RandomForestModel(task='regression', n_estimators=200, max_depth=20),
         'xgboost': XGBoostModel(task='regression', n_estimators=500, learning_rate=0.05),
-        'lightgbm': LightGBMModel(task='regression', n_estimators=500, learning_rate=0.05)
+        'lightgbm': LightGBMModel(task='regression', n_estimators=500, learning_rate=0.05),
+        'persistence': PersistenceModel(task='regression', persistence_feature='temp_mean_gve')
     }
 
     # Train each model
