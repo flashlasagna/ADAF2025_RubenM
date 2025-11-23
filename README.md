@@ -85,7 +85,7 @@ ADAF2025_RubenMimouni/
 │   ├── models/                        # Model definitions
 │   │   ├── __init__.py
 │   │   ├── base_model.py              # Abstract base class
-│   │   ├── persistence_model.py       # Baseline model
+│   │   ├── persistence_model.py       # Baseline model for regression
 │   │   ├── linear_models.py           # Ridge regression
 │   │   ├── random_forest.py           # Random Forest
 │   │   ├── xgboost_model.py           # XGBoost wrapper
