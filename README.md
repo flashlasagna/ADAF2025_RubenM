@@ -291,8 +291,8 @@ Each model trained with:
 **Optimal Parameters Found:**
 
 **Ridge Regression:**
-- Regression: `$α = 1.0$`
-- Classification: `$α = 10.0$`
+- Regression: $`α = 1.0$`$
+- Classification: $`$α = 10.0$`$
 
 **Random Forest:**
 - Regression: n_estimators=100, max_depth=30, min_samples_split=10
