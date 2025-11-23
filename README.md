@@ -454,11 +454,6 @@ python main.py --step evaluate      # 5 min
 ⚠️ Class imbalance required weighted loss functions  
 ✅ Classical methods sometimes superior for tabular data  
 
-### Recommendations
-- **For temperature:** Use XGBoost or LightGBM (1.50°C RMSE)
-- **For rain:** Use TFT (0.65 AUC) or XGBoost (0.63 AUC)
-- **For production:** Ensemble of best models
-- **For research:** Explore longer sequences (60+ days) for TFT
 
 ---
 
