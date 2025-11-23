@@ -1,4 +1,4 @@
-# Come Rain or Come Shine: Weather Prediction with Machine Learning
+# Come Rain or Come Shine: Multi-Horizon Weather Forecasting With Machine Learning
 
 **Multi-Horizon Weather Forecasting: Comparing Classical Machine Learning and Temporal Fusion Transformers**
 
