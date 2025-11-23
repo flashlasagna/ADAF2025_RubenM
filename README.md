@@ -22,30 +22,6 @@ This project provides a comprehensive comparison of machine learning approaches 
 
 ---
 
-## 🏆 Key Results Summary
-
-### Temperature Prediction (RMSE - Lower is Better)
-| Model | Test RMSE | Status |
-|-------|-----------|--------|
-| **XGBoost** | **1.50°C** | ⭐ Best |
-| **LightGBM** | **1.51°C** | ⭐ Best |
-| Random Forest | 1.67°C | Good |
-| Ridge | 1.66°C | Baseline |
-| TFT | 2.54°C | Underperformed |
-
-### Rain Prediction (AUC - Higher is Better)
-| Model | Test AUC | Status |
-|-------|----------|--------|
-| **TFT** | **0.65** | ⭐ Best |
-| XGBoost | 0.63 | Excellent |
-| LightGBM | 0.62 | Excellent |
-| Random Forest | 0.62 | Excellent |
-| Ridge | 0.56 | Baseline |
-
-**Key Finding:** Systematic hyperparameter optimization improved all models by 7-14%. TFT achieved state-of-the-art performance on rain prediction but was outperformed by gradient boosting for temperature forecasting.
-
----
-
 ## 📁 Project Structure
 
 ```
